@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use action 
-        uses: omnibenchmark/run_omnibenchmark@extra_args
+        uses: omnibenchmark/run_omnibenchmark@main
+        env:
+          SINGULARITY_HOME: ${{ github.workspace }}
         with:
           yaml: benchmark.yaml
           backend: apptainer
@@ -22,4 +24,4 @@ jobs:
           #extra_args: " -- --singularity-args \"--home=${GITHUB_WORKSPACE} --bind=${PWD}\""
           #extra_args: '-- --singularity-args "--home=${GITHUB_WORKSPACE} --bind=${GITHUB_WORKSPACE}"'
           #extra_args: " -- --singularity-args \"--home=${GITHUB_WORKSPACE} --bind=${GITHUB_WORKSPACE}\""
-          extra_args: " -- --singularity-args \"--home=${{ github.workspace }} --bind=${{ github.workspace }}\""
+          #extra_args: " -- --singularity-args \"--home=${{ github.workspace }} --bind=${{ github.workspace }}\""
