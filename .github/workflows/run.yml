@@ -19,4 +19,5 @@ jobs:
           yaml: benchmark.yaml
           backend: apptainer
           omnibenchmark_branch: 'main'
-          extra_args: ' -- --singularity-args "--home=${GITHUB_WORKSPACE} --bind $PWD"'
+          #extra_args: " -- --singularity-args \"--home=${GITHUB_WORKSPACE} --bind=${PWD}\""
+          extra_args: '-- --singularity-args "--home=${GITHUB_WORKSPACE} --bind=${GITHUB_WORKSPACE}"'
